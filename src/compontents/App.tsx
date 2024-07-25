@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createHashRouter, RouterProvider} from "react-router-dom";
 import {StandardFrame} from "./pages/StandardFrame";
 import {ErrorPage} from "./pages/ErrorPage";
 import {LandingPage} from "./pages/LandingPage";
@@ -8,14 +8,14 @@ import {TestPage} from "./pages/TestPage";
 
 export const App = () => {
 
-    const router = createBrowserRouter([
+    const router = createHashRouter([
         {
             path: "/",
             element: <StandardFrame/>,
             errorElement: <ErrorPage/>,
             children: [
                 {
-                    path: "/",
+                    index: true,
                     element: <LandingPage/>,
                 },
                 {
